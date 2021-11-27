@@ -36,7 +36,9 @@ def generate_graph_nodes_recursive(parent_folder, rel_folder, graph):
             folder_size = generate_graph_nodes_recursive(os.path.join(parent_folder, file_folder), rel_folder, graph)
 
             # Re-create the node with the new folder size.
-            graph.add_node(folder_node_name, weight=math.log2(folder_size + 1), size=math.log2(folder_size + 1))
+            graph.add_node(folder_node_name,
+                           weight=math.log10(folder_size + 1) / math.log10(1.4),
+                           size=math.log10(folder_size + 1) / math.log10(1.4))
             folder_bytes_total += folder_size
 
         # Otherwise, check and make sure that
