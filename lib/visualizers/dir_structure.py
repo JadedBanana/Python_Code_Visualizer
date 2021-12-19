@@ -12,6 +12,7 @@ def generate_graph_nodes_recursive(parent_folder, rel_folder, graph):
 
     Arguments:
         parent_folder (str) : The folder to be searched.
+        rel_folder (str) : The relative folder to the parent folder.
         graph (networkx.Graph) : The Graph object.
     """
     # Get the total folder bytes.
@@ -86,3 +87,6 @@ def generate(project_folder):
     nt.from_nx(graph)
     nt.hrepulsion()
     nt.show('nx.html')
+
+if __name__ == '__main__':
+    generate('../Jadi3Pi')
